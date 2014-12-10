@@ -20,6 +20,11 @@
             <meta-data
                 android:name="com.parse.ui.ParseLoginActivity.PARSE_LOGIN_ENABLED"
                 android:value="true" />
+
+            <meta-data
+                android:name="com.parse.ui.ParseLoginActivity.FACEBOOK_LOGIN_BUTTON_TEXT"
+                android:value="@string/facebook_custom_login_text" />
+
         </activity>
 
         <activity
