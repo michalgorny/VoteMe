@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_id">YOUR_APPLICATION_ID</string>
+    <string name="client_id">YOUR_CLIENT_KEY</string>
+</resources>
