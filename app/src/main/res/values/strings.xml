@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">VoteMe</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="hello_world">Hello VoteMe!</string>
     <string name="action_settings">Settings</string>
 
 </resources>
