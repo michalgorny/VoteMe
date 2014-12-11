@@ -21,7 +21,6 @@ public class LaunchActivity extends ActionBarActivity {
         customizeLoginScreen(builder);
         startActivityForResult(builder.build(), PARSE_LOGIN_REQUEST_CODE);
 
-        finish();
     }
 
     private void customizeLoginScreen(ParseLoginBuilder builder) {
@@ -35,6 +34,7 @@ public class LaunchActivity extends ActionBarActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == PARSE_LOGIN_REQUEST_CODE && resultCode == RESULT_OK){
             startActivity(new Intent(this, MainActivity.class));
+            finish();
         }
     }
 }
