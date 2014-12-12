@@ -107,13 +107,25 @@
             android:hint="@string/form_more_topics_hint"
             android:layout_gravity="center_horizontal" />
 
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/form_send_button_text"
-            android:layout_gravity="right"
-            android:id="@+id/sendFormButton" />
+            android:gravity="right">
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/form_clear_button_text"
+                android:id="@+id/clearFormButton" />
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/form_send_button_text"
+                android:id="@+id/sendFormButton" />
+
+        </LinearLayout>
 
     </LinearLayout>
 </ScrollView>

@@ -24,6 +24,7 @@
     <string name="form_additional_notes_hint">Comments</string>
     <string name="form_more_topics_hint">Topics</string>
     <string name="form_send_button_text">Send</string>
+    <string name="form_clear_button_text">Clear</string>
 
 
 </resources>
