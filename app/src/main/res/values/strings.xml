@@ -12,4 +12,18 @@
     <string name="vote">Vote</string>
     <string name="vote_me">Vote me!</string>
 
+    <!--Form vote texts-->
+    <string name="form_general">What are your general feelings?</string>
+    <string name="form_trainer">How you rate knowledge trainer?</string>
+    <string name="form_tasks">How you rate difficulty of tasks?</string>
+    <string name="form_details">How you rate details of topic?</string>
+    <string name="form_place">How you rate the place and conditions of training?</string>
+    <string name="form_necessity">How you rate the necessity of training in this topic?</string>
+    <string name="form_additional_notes">Additional notes about training</string>
+    <string name="form_more_topics">Which topics should be presented on next training?</string>
+    <string name="form_additional_notes_hint">Comments</string>
+    <string name="form_more_topics_hint">Topics</string>
+    <string name="form_send_button_text">Send</string>
+
+
 </resources>
