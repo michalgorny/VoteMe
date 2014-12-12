@@ -6,5 +6,9 @@
     <string name="action_settings">Settings</string>
     <string name="facebook_custom_login_text">FB log please!</string>
     <string name="logout">Log out</string>
+    <string name="title_activity_voting_result">VotingResultActivity</string>
+    <string name="title_activity_vote">VoteActivity</string>
+    <string name="results">Voting results</string>
+    <string name="vote">Vote</string>
 
 </resources>
