@@ -4,9 +4,13 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.widget.EditText;
 import android.widget.RatingBar;
+import android.widget.Toast;
 
+import com.parse.ParseException;
 import com.parse.ParseObject;
+import com.parse.SaveCallback;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -66,11 +70,41 @@ public class VoteActivity extends ActionBarActivity {
     }
 
     @OnClick(R.id.sendFormButton)
-    public void sendQuestionnaire(){
-        
+    public void sendQuestionnaire() {
+        ParseObject ratings = new ParseObject("ratings");
+
+        Map<String, Object> results = getResults();
+
+        for (String key : results.keySet()) {
+            ratings.add(key, results.get(key));
+        }
+
+        ratings.saveInBackground(new SaveCallback() {
+            @Override
+            public void done(ParseException e) {
+                if (e == null){
+                    Toast.makeText(VoteActivity.this, R.string.vote_sent, Toast.LENGTH_SHORT).show();
+                    finish();
+                }else {
+                    e.printStackTrace();
+                    Toast.makeText(VoteActivity.this, R.string.error_sent, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
     }
 
 
-
-
+    public Map<String,Object> getResults() {
+        Map<String, Object> results = new HashMap<>();
+        results.put("details", mRatingBarDetails.getRating());
+        results.put("feelings", mRatingBarFeelings.getRating());
+        results.put("necessity", mRatingBarNecessity.getRating());
+        results.put("place", mRatingBarPlace.getRating());
+        results.put("tasks", mRatingBarTasks.getRating());
+        results.put("trainer", mRatingBarTrainer.getRating());
+        results.put("comments", mAddtionalNotes.getText().toString());
+        results.put("topics", mMoreTopics.getText().toString());
+        return results;
+    }
 }
