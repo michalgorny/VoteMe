@@ -10,5 +10,6 @@
     <string name="title_activity_vote">VoteActivity</string>
     <string name="results">Voting results</string>
     <string name="vote">Vote</string>
+    <string name="vote_me">Vote me!</string>
 
 </resources>
