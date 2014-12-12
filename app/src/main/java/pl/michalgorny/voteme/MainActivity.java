@@ -1,14 +1,11 @@
 package pl.michalgorny.voteme;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.Button;
 
-import com.parse.ParseFacebookUtils;
 import com.parse.ParseUser;
 
 
@@ -28,10 +25,36 @@ public class MainActivity extends ActionBarActivity {
         });
     }
 
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.vote_button:
+                vote();
+                break;
+            case R.id.results_button:
+                showResults();
+                break;
+            case R.id.logout_button:
+                logoutUser();
+                break;
+        }
+    }
+
+    private void vote() {
+        switchActivity(VoteActivity.class);
+    }
+
+    private void showResults() {
+        switchActivity(VotingResultActivity.class);
+    }
+
     private void logoutUser() {
         ParseUser.logOut();
-        startActivity(new Intent(this, LaunchActivity.class));
+        switchActivity(LaunchActivity.class);
         finish();
+    }
+
+    private void switchActivity(Class<?> clazz) {
+        startActivity(new Intent(this, clazz));
     }
 
 }
