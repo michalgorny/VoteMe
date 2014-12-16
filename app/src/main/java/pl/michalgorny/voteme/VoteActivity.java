@@ -18,6 +18,7 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.InjectViews;
 import butterknife.OnClick;
+import pl.michalgorny.voteme.model.Ratings;
 
 
 public class VoteActivity extends ActionBarActivity {
@@ -71,12 +72,12 @@ public class VoteActivity extends ActionBarActivity {
 
     @OnClick(R.id.sendFormButton)
     public void sendQuestionnaire() {
-        ParseObject ratings = new ParseObject("ratings");
+        ParseObject ratings = ParseObject.create("ratings");
 
         Map<String, Object> results = getResults();
 
         for (String key : results.keySet()) {
-            ratings.add(key, results.get(key));
+            ratings.put(key, results.get(key));
         }
 
         ratings.saveInBackground(new SaveCallback() {
