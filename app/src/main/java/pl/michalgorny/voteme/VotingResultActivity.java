@@ -21,18 +21,49 @@ public class VotingResultActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_voting_result);
 
-        /**
-         * TODO: Get results from server. Use @ParseQuery and @Ratings classes
-         */
+        ParseQuery<Ratings> query = ParseQuery.getQuery("ratings");
+
+        query.findInBackground(new FindCallback<Ratings>() {
+            @Override
+            public void done(List<Ratings> parseObjects, ParseException e) {
+                if (e == null) {
+                    handleResponse(parseObjects);
+                } else {
+                    Toast.makeText(VotingResultActivity.this, getString(R.string.error_sent), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
     }
 
     private void handleResponse(List<Ratings> ratings) {
         HashMap<String, Float> values = new HashMap<>(ratings.size());
 
-        /**
-         * TODO: Get data from retrieved object and pass them to fragment displays it.
-         */
+        double feelings = 0;
+        double necessity = 0;
+        double place = 0;
+        double tasks = 0;
+        double details = 0;
+        double trainer = 0;
+
+
+        for (Ratings rating : ratings) {
+            feelings += rating.getDouble("feelings");
+            necessity += rating.getDouble("necessity");
+            tasks += rating.getDouble("tasks");
+            details += rating.getDouble("details");
+            trainer += rating.getDouble("trainer");
+            place += rating.getDouble("place");
+        }
+
+        int size = ratings.size();
+
+        values.put(getString(R.string.results_general), calculateAverage(feelings, size));
+        values.put(getString(R.string.results_necessity), calculateAverage(necessity, size));
+        values.put(getString(R.string.results_tasks), calculateAverage(tasks, size));
+        values.put(getString(R.string.results_details), calculateAverage(details, size));
+        values.put(getString(R.string.results_trainer), calculateAverage(trainer, size));
+        values.put(getString(R.string.results_place), calculateAverage(place, size));
 
         addFragment(values);
     }
