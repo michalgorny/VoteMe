@@ -11,8 +11,10 @@
     <string name="results">Voting results</string>
     <string name="vote">Vote</string>
     <string name="vote_me">Vote me!</string>
+    <string name="vote_sent">Vote was sent</string>
+    <string name="error_sent">Something went wrong</string>
 
-    <!--Form vote texts-->
+    <!-- Form vote texts -->
     <string name="form_general">What are your general feelings?</string>
     <string name="form_trainer">How you rate knowledge trainer?</string>
     <string name="form_tasks">How you rate difficulty of tasks?</string>
@@ -25,8 +27,15 @@
     <string name="form_more_topics_hint">Topics</string>
     <string name="form_send_button_text">Send</string>
     <string name="form_clear_button_text">Clear</string>
-    <string name="vote_sent">Vote was sent</string>
-    <string name="error_sent">Something went wrong</string>
+    <!-- END -->
+
+    <!-- Results vote texts -->
+    <string name="results_general">General feelings</string>
+    <string name="results_necessity">Necessity of trainig</string>
+    <string name="results_tasks">Difficulty of tasks</string>
+    <string name="results_details">Topic details</string>
+    <string name="results_trainer">Trainer knowledge</string>
+    <string name="results_place">Place and conditions</string>
 
 
 </resources>
