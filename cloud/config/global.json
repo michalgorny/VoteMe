@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "VoteMe": {
+            "applicationId": "TYPE_YOUR_APP_ID", 
+            "masterKey": "TYPE_YOUR_MASTER_KEY"
+        }, 
+        "_default": {
+            "link": "VoteMe"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.3.2"
+    }
+}
