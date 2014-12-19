@@ -5,6 +5,9 @@ import android.support.v7.app.ActionBarActivity;
 import android.widget.Toast;
 
 import com.parse.FindCallback;
+import com.parse.FunctionCallback;
+import com.parse.ParseClassName;
+import com.parse.ParseCloud;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
 
@@ -21,6 +24,8 @@ public class VotingResultActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_voting_result);
 
+        queryCloud();
+
         ParseQuery<Ratings> query = ParseQuery.getQuery("ratings");
 
         query.findInBackground(new FindCallback<Ratings>() {
@@ -34,6 +39,17 @@ public class VotingResultActivity extends ActionBarActivity {
             }
         });
 
+    }
+
+    private void queryCloud() {
+        ParseCloud.callFunctionInBackground("averageFeelings", new HashMap<String, Object>(), new FunctionCallback<Double>() {
+            @Override
+            public void done(Double result, ParseException e) {
+                if (e == null){
+                    Toast.makeText(VotingResultActivity.this, String.valueOf(result), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     private void handleResponse(List<Ratings> ratings) {
